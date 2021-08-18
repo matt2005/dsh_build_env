@@ -1,0 +1,70 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "AASDK - Get",
+            "command": "git clone git@github.com:matt2005/aasdk.git -b cpack",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "AASDK - Clean",
+            "command": "cd aasdk;sudo rm -R build",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "AASDK - Build",
+            "command": "cd aasdk;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release ../",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "AASDK - Create DEB Package",
+            "command": "cd aasdk;cd build;cpack --config CPackConfig.cmake",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "AASDK - Create DEB SRC Package",
+            "command": "cd aasdk;cd build;cpack --config CPackSourceConfig.cmake",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        }
+    ]
+}
