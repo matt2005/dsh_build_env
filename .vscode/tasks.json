@@ -250,7 +250,7 @@
         },
         {
             "label": "Dash - Clean",
-            "command": "cd Dash;sudo rm -R build",
+            "command": "cd dash;sudo rm -R build",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -263,7 +263,7 @@
         },
         {
             "label": "Dash - Build",
-            "command": "cd Dash;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release ../",
+            "command": "cd dash;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release ../",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -276,7 +276,7 @@
         },
         {
             "label": "Dash - Make",
-            "command": "cd Dash;cd build;make -j",
+            "command": "cd dash;cd build;make -j",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -289,7 +289,7 @@
         },
         {
             "label": "Dash - Create DEB Package",
-            "command": "cd Dash;cd build;cpack --config CPackConfig.cmake",
+            "command": "cd dash;cd build;cpack --config CPackConfig.cmake",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -302,7 +302,7 @@
         },
         {
             "label": "Dash - Create DEB SRC Package",
-            "command": "cd Dash;cd build;cpack --config CPackSourceConfig.cmake",
+            "command": "cd dash;cd build;cpack --config CPackSourceConfig.cmake",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -312,6 +312,32 @@
                 "reveal": "always"
             },
             "group": "build"
+        },
+        {
+            "label": "Packages - Get Repo",
+            "command": "git clone git@github.com:matt2005/packagerepo.git",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "none"
+        },
+        {
+            "label": "Packages - Deploy AASDK to Repo",
+            "command": "cd aasdk;cd build;",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "none"
         }
     ]
 }
