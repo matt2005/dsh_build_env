@@ -41,6 +41,19 @@
             "group": "build"
         },
         {
+            "label": "AASDK - Make",
+            "command": "cd aasdk;cd build;make -j",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
             "label": "AASDK - Create DEB Package",
             "command": "cd aasdk;cd build;cpack --config CPackConfig.cmake",
             "type": "shell",
@@ -56,6 +69,240 @@
         {
             "label": "AASDK - Create DEB SRC Package",
             "command": "cd aasdk;cd build;cpack --config CPackSourceConfig.cmake",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "qt-gstreamer - Get",
+            "command": "git clone git://github.com/GStreamer/qt-gstreamer",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "qt-gstreamer - Clean",
+            "command": "cd qt-gstreamer;sudo rm -R build",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "qt-gstreamer - Build",
+            "command": "cd qt-gstreamer;mkdir build;cd build;cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib/$(dpkg-architecture -qDEB_HOST_MULTIARCH) -DCMAKE_INSTALL_INCLUDEDIR=include -DQT_VERSION=5 -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-std=c++11",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "qt-gstreamer - Make",
+            "command": "cd qt-gstreamer;cd build;make -j",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "qt-gstreamer - Create DEB Package",
+            "command": "cd qt-gstreamer;cd build;cpack --config CPackConfig.cmake",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "qt-gstreamer - Create DEB SRC Package",
+            "command": "cd qt-gstreamer;cd build;cpack --config CPackSourceConfig.cmake",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "OpenAuto - Get",
+            "command": "git clone git@github.com:matt2005/OpenAuto.git -b cpack",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "OpenAuto - Clean",
+            "command": "cd openauto;sudo rm -R build",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "OpenAuto - Build",
+            "command": "cd openauto;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release ../",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "OpenAuto - Make",
+            "command": "cd openauto;cd build;make -j",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "OpenAuto - Create DEB Package",
+            "command": "cd openauto;cd build;cpack --config CPackConfig.cmake",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "OpenAuto - Create DEB SRC Package",
+            "command": "cd openauto;cd build;cpack --config CPackSourceConfig.cmake",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Dash - Get",
+            "command": "git clone git@github.com:openDsh/dash.git",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Dash - Clean",
+            "command": "cd Dash;sudo rm -R build",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Dash - Build",
+            "command": "cd Dash;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release ../",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Dash - Make",
+            "command": "cd Dash;cd build;make -j",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Dash - Create DEB Package",
+            "command": "cd Dash;cd build;cpack --config CPackConfig.cmake",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Dash - Create DEB SRC Package",
+            "command": "cd Dash;cd build;cpack --config CPackSourceConfig.cmake",
             "type": "shell",
             "args": [],
             "problemMatcher": [
