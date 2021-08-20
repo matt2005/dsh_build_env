@@ -263,7 +263,7 @@
         },
         {
             "label": "Dash - Build",
-            "command": "cd dash;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release ../",
+            "command": "cd dash;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DGST_BUILD=TRUE ../",
             "type": "shell",
             "args": [],
             "problemMatcher": [
