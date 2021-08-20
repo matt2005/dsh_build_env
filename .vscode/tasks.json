@@ -185,7 +185,7 @@
         },
         {
             "label": "OpenAuto - Build",
-            "command": "cd openauto;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release ../",
+            "command": "cd openauto;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DGST_BUILD=true ../",
             "type": "shell",
             "args": [],
             "problemMatcher": [
