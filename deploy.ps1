@@ -15,8 +15,8 @@ Foreach ($package in $packages) {
     $deb = Get-Deb -Package $package
     IF ($deb) {
         $packagename = ((get-item $deb).name -split '_')[0]
-        reprepro --basedir /home/opendsh/packagerepo/debian remove buster $packagename
-        reprepro --basedir /home/opendsh/packagerepo/debian remove bullseye $packagename
-        reprepro --basedir /home/opendsh/packagerepo/debian includedeb buster $deb
+        reprepro --basedir packagerepo/debian remove buster $packagename
+        reprepro --basedir packagerepo/debian remove bullseye $packagename
+        reprepro --basedir packagerepo/debian includedeb buster $deb
     }
 }
