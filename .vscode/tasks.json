@@ -327,8 +327,8 @@
             "group": "none"
         },
         {
-            "label": "Packages - Deploy AASDK to Repo",
-            "command": "cd aasdk;cd build;",
+            "label": "Packages - Deploy to Repo",
+            "command": "pwsh -f ./deploy.ps1",
             "type": "shell",
             "args": [],
             "problemMatcher": [
