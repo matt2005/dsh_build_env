@@ -250,7 +250,7 @@
         },
         {
             "label": "Dash - Get",
-            "command": "git clone git@github.com:openDsh/dash.git",
+            "command": "git clone git@github.com:openDsh/dash.git opendsh",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -263,7 +263,7 @@
         },
         {
             "label": "Dash - Patch",
-            "command": "cd dash;patch CMakeLists.txt < ../dash_cpack.patch",
+            "command": "cd opendsh;patch CMakeLists.txt < ../dash_cpack.patch",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -276,7 +276,7 @@
         },
         {
             "label": "Dash - Clean",
-            "command": "cd dash;sudo rm -R build",
+            "command": "cd opendsh;sudo rm -R build",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -289,7 +289,7 @@
         },
         {
             "label": "Dash - Build",
-            "command": "cd dash;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DGST_BUILD=TRUE ../",
+            "command": "cd opendsh;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DGST_BUILD=TRUE ../",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -302,7 +302,7 @@
         },
         {
             "label": "Dash - Make",
-            "command": "cd dash;cd build;make -j2",
+            "command": "cd opendsh;cd build;make -j2",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -315,7 +315,7 @@
         },
         {
             "label": "Dash - Create DEB Package",
-            "command": "cd dash;cd build;cpack --config CPackConfig.cmake",
+            "command": "cd opendsh;cd build;cpack --config CPackConfig.cmake",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -328,7 +328,7 @@
         },
         {
             "label": "Dash - Create DEB SRC Package",
-            "command": "cd dash;cd build;cpack --config CPackSourceConfig.cmake",
+            "command": "cd opendsh;cd build;cpack --config CPackSourceConfig.cmake",
             "type": "shell",
             "args": [],
             "problemMatcher": [
