@@ -1,0 +1,31 @@
+--- qt-gstreamer/CMakeLists.txt	2021-09-02 22:41:56.878081039 +0100
++++ qtgs/CMakeLists.txt	2021-08-19 21:33:33.468346662 +0100
+@@ -201,3 +201,27 @@
+                                 "http://www.doxygen.org/" FALSE)
+ 
+ macro_display_feature_log()
++
++SET(CPACK_GENERATOR "DEB")
++SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "qt-gstreamer") #required
++SET(CPACK_PACKAGE_VENDOR "qt-gstreamer") 
++set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
++set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
++set(CPACK_COMPONENTS_ALL libraries headers Unspecified)
++set(CPACK_COMPONENT_LIBRARIES_DISPLAY_NAME "Libraries")
++set(CPACK_COMPONENT_HEADERS_DISPLAY_NAME "C++ Headers")
++set(CPACK_COMPONENT_LIBRARIES_DESCRIPTION
++  "Static libraries used to build programs with qt-gstreamer")
++set(CPACK_COMPONENT_HEADERS_DESCRIPTION
++  "C/C++ header files for use with qt-gstreamer")
++set(CPACK_COMPONENT_LIBRARIES_GROUP "Development")
++set(CPACK_COMPONENT_HEADERS_GROUP "Development")
++set(CPACK_COMPONENT_GROUP_DEVELOPMENT_EXPANDED ON)
++set(CPACK_COMPONENT_GROUP_DEVELOPMENT_DESCRIPTION
++  "All of the tools you'll ever need to develop software")
++set(CPACK_COMPONENT_HEADERS_DEPENDS libraries)
++set(CPACK_ALL_INSTALL_TYPES Full Developer)
++set(CPACK_INSTALL_TYPE_FULL_DISPLAY_NAME "Everything")
++set(CPACK_COMPONENT_LIBRARIES_INSTALL_TYPES Developer Full)
++set(CPACK_COMPONENT_HEADERS_INSTALL_TYPES Developer Full)
++INCLUDE(CPack)
+\ No newline at end of file
