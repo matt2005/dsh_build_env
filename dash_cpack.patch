@@ -1,0 +1,62 @@
+--- dash/CMakeLists.txt	2021-09-02 22:13:16.271686190 +0100
++++ "CMakeLists.txt copy.pack"	2021-09-02 22:18:01.189738621 +0100
+@@ -1,6 +1,12 @@
+ cmake_minimum_required(VERSION 3.7.0)
+-project(dash CXX)
+ 
++set (dash_VERSION_MAJOR 0)
++set (dash_VERSION_MINOR 1)
++set (dash_VERSION_PATCH 0)
++project(dash
++VERSION ${dash_VERSION_MAJOR}.${dash_VERSION_MINOR}.${dash_VERSION_PATCH}
++LANGUAGES CXX)
++ 
+ set(CMAKE_AUTOMOC ON)
+ set(CMAKE_AUTOUIC ON)
+ set(CMAKE_AUTORCC ON)
+@@ -85,6 +91,9 @@
+ add_executable(dash ${source_files})
+ 
+ include(${base_directory}/cmake_modules/gitversion.cmake)
++set (dash_VERSION_PATCH ${_build_version})
++set (dash_VERSION_STRING ${dash_VERSION_MAJOR}.${dash_VERSION_MINOR}.${dash_VERSION_PATCH})
++message(INFO " Project Version: ${dash_VERSION_STRING}")
+ 
+ target_include_directories(dash PRIVATE
+     ${CMAKE_CURRENT_BINARY_DIR}
+@@ -148,3 +157,34 @@
+     )
+ 
+ install(TARGETS dash DESTINATION bin)
++
++SET(CPACK_GENERATOR "DEB")
++SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "OpenDsh") #required
++SET(CPACK_DEBIAN_PACKAGE_NAME "OpenDsh")
++SET(CPACK_PACKAGE_VENDOR "OpenDsh") 
++set(CPACK_PACKAGE_VERSION ${dash_VERSION_STRING})
++set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
++set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
++set(CPACK_COMPONENTS_ALL applications libraries headers Unspecified)
++set(CPACK_COMPONENT_APPLICATIONS_DISPLAY_NAME "Applications")
++set(CPACK_COMPONENT_LIBRARIES_DISPLAY_NAME "Libraries")
++set(CPACK_COMPONENT_HEADERS_DISPLAY_NAME "C++ Headers")
++set(CPACK_COMPONENT_APPLICATIONS_DESCRIPTION
++  "Applications provided by OpenDsh")
++set(CPACK_COMPONENT_LIBRARIES_DESCRIPTION
++  "Static libraries used to build programs with OpenDsh")
++set(CPACK_COMPONENT_HEADERS_DESCRIPTION
++  "C/C++ header files for use with OpenDsh")
++set(CPACK_COMPONENT_LIBRARIES_GROUP "Development")
++set(CPACK_COMPONENT_HEADERS_GROUP "Development")
++set(CPACK_COMPONENT_GROUP_DEVELOPMENT_EXPANDED ON)
++set(CPACK_COMPONENT_GROUP_DEVELOPMENT_DESCRIPTION
++  "All of the tools you'll ever need to develop software")
++set(CPACK_COMPONENT_HEADERS_DEPENDS libraries)
++set(CPACK_COMPONENT_APPLICATIONS_DEPENDS libraries)
++set(CPACK_ALL_INSTALL_TYPES Full Developer)
++set(CPACK_INSTALL_TYPE_FULL_DISPLAY_NAME "Everything")
++set(CPACK_COMPONENT_LIBRARIES_INSTALL_TYPES Developer Full)
++set(CPACK_COMPONENT_HEADERS_INSTALL_TYPES Developer Full)
++set(CPACK_COMPONENT_APPLICATIONS_INSTALL_TYPES Full)
++INCLUDE(CPack)												 
+\ No newline at end of file

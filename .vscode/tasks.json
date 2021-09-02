@@ -262,6 +262,19 @@
             "group": "build"
         },
         {
+            "label": "Dash - Patch",
+            "command": "cd dash;patch CMakeLists.txt < ../dash_cpack.patch",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
             "label": "Dash - Clean",
             "command": "cd dash;sudo rm -R build",
             "type": "shell",

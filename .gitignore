@@ -3,4 +3,4 @@
 !/.vscode/tasks.json
 !/README.md
 !/deploy.ps1
-!/qt-gstreamer_cpack.patch
+!/*_cpack.patch
