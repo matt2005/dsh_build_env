@@ -42,7 +42,7 @@
         },
         {
             "label": "AASDK - Make",
-            "command": "cd aasdk;cd build;make -j",
+            "command": "cd aasdk;cd build;make -j2",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -262,6 +262,19 @@
             "group": "build"
         },
         {
+            "label": "Dash - Install Deps",
+            "command": "cd opendsh;./install.sh --deps",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
             "label": "Dash - Patch",
             "command": "cd opendsh;patch CMakeLists.txt < ../dash_cpack.patch",
             "type": "shell",
@@ -340,7 +353,7 @@
             "group": "build"
         },
         {
-            "label": "Packages - Get Repo",
+            "label": "Packages - Get",
             "command": "git clone git@github.com:matt2005/packagerepo.git",
             "type": "shell",
             "args": [],
@@ -353,7 +366,7 @@
             "group": "none"
         },
         {
-            "label": "Packages - Deploy to Repo",
+            "label": "Packages - Deploy",
             "command": "pwsh -f ./deploy.ps1",
             "type": "shell",
             "args": [],
