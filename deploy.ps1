@@ -17,8 +17,8 @@ Foreach ($package in $packages) {
     $deb
     IF ($deb) {
         $packagename = ((get-item $deb).name -split '_')[0]
-        reprepro --basedir packagerepo/debian remove buster $packagename
-        reprepro --basedir packagerepo/debian remove bullseye $packagename
-        reprepro --basedir packagerepo/debian includedeb buster $deb
+        reprepro --basedir packagerepo/apt/debian remove buster $packagename
+        reprepro --basedir packagerepo/apt/debian remove bullseye $packagename
+        reprepro --basedir packagerepo/apt/debian includedeb buster $deb
     }
 }

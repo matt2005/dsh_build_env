@@ -1,5 +1,11 @@
 # opendsh dev build environment
 
+## Prereqs
+
+```bash
+sudo apt install git reprepro -y
+```
+
 ## Process
 
 Run vscode tasks 
