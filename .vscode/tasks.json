@@ -172,7 +172,7 @@
         },
         {
             "label": "OpenAuto - Get",
-            "command": "git clone git@github.com:matt2005/OpenAuto.git -b cpack",
+            "command": "git clone git@github.com:matt2005/OpenAuto.git -b cpack openauto",
             "type": "shell",
             "args": [],
             "problemMatcher": [
