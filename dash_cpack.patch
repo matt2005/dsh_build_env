@@ -1,5 +1,5 @@
---- dash/CMakeLists.txt	2021-09-02 22:13:16.271686190 +0100
-+++ "CMakeLists.txt copy.pack"	2021-09-02 22:18:01.189738621 +0100
+--- "CMakeLists copy.txt"	2021-09-08 23:39:58.034971115 +0100
++++ CMakeLists.txt	2021-09-08 23:57:34.782999125 +0100
 @@ -1,6 +1,12 @@
  cmake_minimum_required(VERSION 3.7.0)
 -project(dash CXX)
@@ -24,10 +24,14 @@
  
  target_include_directories(dash PRIVATE
      ${CMAKE_CURRENT_BINARY_DIR}
-@@ -148,3 +157,34 @@
+@@ -147,4 +156,37 @@
+     ${TAGLIB_LIBRARIES}
      )
  
- install(TARGETS dash DESTINATION bin)
+-install(TARGETS dash DESTINATION bin)
++install(DIRECTORY lib DESTINATION lib COMPONENT libraries)
++install(DIRECTORY include DESTINATION include COMPONENT headers)
++install(DIRECTORY bin DESTINATION bin COMPONENT applications)
 +
 +SET(CPACK_GENERATOR "DEB")
 +SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "OpenDsh") #required
