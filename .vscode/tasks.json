@@ -302,7 +302,7 @@
         },
         {
             "label": "Dash - Build",
-            "command": "cd opendsh;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DGST_BUILD=TRUE ../",
+            "command": "cd opendsh;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DGST_BUILD=TRUE -DCMAKE_INSTALL_PREFIX=\"/usr/local/opendsh\" ../",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -351,6 +351,32 @@
                 "reveal": "always"
             },
             "group": "build"
+        },
+        {
+            "label": "Packages - Get",
+            "command": "git clone git@github.com:matt2005/packagerepo.git",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "none"
+        },
+        {
+            "label": "Fury - Packages - prereq",
+            "command": "sudo bash -c \"echo 'deb [trusted=yes] https://cli.gemfury.com/apt/ /' > /etc/apt/sources.list.d/fury-cli.list\"; sudo apt update; sudo apt install gemfury -y",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "none"
         },
         {
             "label": "Packages - Get",
