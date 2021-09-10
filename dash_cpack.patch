@@ -1,5 +1,7 @@
---- "CMakeLists copy.txt"	2021-09-08 23:39:58.034971115 +0100
-+++ CMakeLists.txt	2021-09-08 23:57:34.782999125 +0100
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e466dd3..13d6e38 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
 @@ -1,6 +1,12 @@
  cmake_minimum_required(VERSION 3.7.0)
 -project(dash CXX)
@@ -14,7 +16,7 @@
  set(CMAKE_AUTOMOC ON)
  set(CMAKE_AUTOUIC ON)
  set(CMAKE_AUTORCC ON)
-@@ -85,6 +91,9 @@
+@@ -85,6 +91,9 @@ add_subdirectory(plugins)
  add_executable(dash ${source_files})
  
  include(${base_directory}/cmake_modules/gitversion.cmake)
@@ -24,7 +26,7 @@
  
  target_include_directories(dash PRIVATE
      ${CMAKE_CURRENT_BINARY_DIR}
-@@ -147,4 +156,37 @@
+@@ -147,4 +156,38 @@ target_link_libraries(dash
      ${TAGLIB_LIBRARIES}
      )
  
@@ -63,5 +65,4 @@
 +set(CPACK_COMPONENT_LIBRARIES_INSTALL_TYPES Developer Full)
 +set(CPACK_COMPONENT_HEADERS_INSTALL_TYPES Developer Full)
 +set(CPACK_COMPONENT_APPLICATIONS_INSTALL_TYPES Full)
-+INCLUDE(CPack)												 
-\ No newline at end of file
++INCLUDE(CPack)
