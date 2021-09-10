@@ -197,6 +197,19 @@
             "group": "build"
         },
         {
+            "label": "openauto - Patch",
+            "command": "cd openauto;patch CMakeLists.txt < ../openauto_cpack.patch",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
             "label": "OpenAuto - Build",
             "command": "cd openauto;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DGST_BUILD=true ../",
             "type": "shell",

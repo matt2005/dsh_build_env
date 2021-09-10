@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bed7e71..b72c0d0 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -98,6 +98,7 @@ install(DIRECTORY bin DESTINATION bin COMPONENT applications)
+ 
+ SET(CPACK_GENERATOR "DEB")
+ SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "OpenDsh") #required
++SET(CPACK_PACKAGE_NAME "OpenAutoOpenDsh") 
+ SET(CPACK_PACKAGE_VENDOR "OpenDsh") 
+ set(CPACK_PACKAGE_VERSION ${openauto_VERSION_STRING})
+ set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
