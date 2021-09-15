@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e466dd3..7c4923d 100644
+index e466dd3..0175e33 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -1,6 +1,12 @@
@@ -21,19 +21,20 @@ index e466dd3..7c4923d 100644
  
  include(${base_directory}/cmake_modules/gitversion.cmake)
 +set (dash_VERSION_PATCH ${_commit_timestamp})
-+set (dash_VERSION_STRING ${dash_VERSION_MAJOR}.${dash_VERSION_MINOR}.${dash_VERSION_PATCH})
++set (dash_VERSION_STRING ${dash_VERSION_MAJOR}.${dash_VERSION_MINOR}.${dash_VERSION_PATCH}-1)
 +message(INFO " Project Version: ${dash_VERSION_STRING}")
  
  target_include_directories(dash PRIVATE
      ${CMAKE_CURRENT_BINARY_DIR}
-@@ -147,4 +156,38 @@ target_link_libraries(dash
+@@ -147,4 +156,39 @@ target_link_libraries(dash
      ${TAGLIB_LIBRARIES}
      )
  
 -install(TARGETS dash DESTINATION bin)
 +install(DIRECTORY lib DESTINATION ${CMAKE_INSTALL_PREFIX} COMPONENT libraries)
 +install(DIRECTORY include DESTINATION ${CMAKE_INSTALL_PREFIX} COMPONENT headers)
-+install(DIRECTORY bin DESTINATION ${CMAKE_INSTALL_PREFIX} COMPONENT applications)
++install(DIRECTORY bin FILE_PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ
++                    GROUP_EXECUTE GROUP_READ WORLD_EXECUTE WORLD_READ DESTINATION ${CMAKE_INSTALL_PREFIX} COMPONENT applications)
 +
 +SET(CPACK_GENERATOR "DEB")
 +SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "OpenDsh") #required
