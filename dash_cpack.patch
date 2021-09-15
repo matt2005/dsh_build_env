@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e466dd3..13d6e38 100644
+index e466dd3..8168479 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -1,6 +1,12 @@
@@ -20,7 +20,7 @@ index e466dd3..13d6e38 100644
  add_executable(dash ${source_files})
  
  include(${base_directory}/cmake_modules/gitversion.cmake)
-+set (dash_VERSION_PATCH ${_build_version})
++set (dash_VERSION_PATCH ${_commit_timestamp})
 +set (dash_VERSION_STRING ${dash_VERSION_MAJOR}.${dash_VERSION_MINOR}.${dash_VERSION_PATCH})
 +message(INFO " Project Version: ${dash_VERSION_STRING}")
  
@@ -41,7 +41,7 @@ index e466dd3..13d6e38 100644
 +SET(CPACK_PACKAGE_VENDOR "OpenDsh") 
 +set(CPACK_PACKAGE_VERSION ${dash_VERSION_STRING})
 +set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
-+set(CPACK_DEBIAN_PACKAGE_DEPENDS "openautoopendsh (=2.1.4a74532)")
++set(CPACK_DEBIAN_PACKAGE_DEPENDS "openautoopendsh (>=2.1.1629500851)")
 +set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 +set(CPACK_COMPONENTS_ALL applications libraries headers Unspecified)
 +set(CPACK_COMPONENT_APPLICATIONS_DISPLAY_NAME "Applications")
@@ -66,3 +66,21 @@ index e466dd3..13d6e38 100644
 +set(CPACK_COMPONENT_HEADERS_INSTALL_TYPES Developer Full)
 +set(CPACK_COMPONENT_APPLICATIONS_INSTALL_TYPES Full)
 +INCLUDE(CPack)
+diff --git a/cmake_modules/gitversion.cmake b/cmake_modules/gitversion.cmake
+index dd473c0..9a5b33a 100644
+--- a/cmake_modules/gitversion.cmake
++++ b/cmake_modules/gitversion.cmake
+@@ -21,6 +21,13 @@ if(GIT_FOUND)
+     ERROR_QUIET
+     OUTPUT_STRIP_TRAILING_WHITESPACE
+   )
++  execute_process(
++    COMMAND ${GIT_EXECUTABLE} log -1 --format=%at
++    WORKING_DIRECTORY "${local_dir}"
++    OUTPUT_VARIABLE _commit_timestamp
++    ERROR_QUIET
++    OUTPUT_STRIP_TRAILING_WHITESPACE
++  )
+   message( STATUS "GIT hash: ${_build_version}; branch: ${_build_branch}")
+   execute_process(
+   	COMMAND ${GIT_EXECUTABLE} diff --no-ext-diff --quiet
