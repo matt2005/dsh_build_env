@@ -211,7 +211,7 @@
         },
         {
             "label": "OpenAuto - Build",
-            "command": "cd openauto;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DGST_BUILD=true ../",
+            "command": "cd openauto;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DRPI_BUILD=true -DGST_BUILD=true ../",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -315,7 +315,7 @@
         },
         {
             "label": "Dash - Build",
-            "command": "cd opendsh;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DGST_BUILD=TRUE -DCMAKE_INSTALL_PREFIX=\"/usr/local/opendsh\" ../",
+            "command": "cd opendsh;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DRPI_BUILD=true -DGST_BUILD=TRUE -DCMAKE_INSTALL_PREFIX=\"/usr/local/opendsh\" ../",
             "type": "shell",
             "args": [],
             "problemMatcher": [
