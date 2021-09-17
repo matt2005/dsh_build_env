@@ -1,14 +1,15 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e466dd3..0175e33 100644
+index e466dd3..2f644fe 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -1,6 +1,12 @@
+@@ -1,6 +1,13 @@
  cmake_minimum_required(VERSION 3.7.0)
 -project(dash CXX)
  
 +set (dash_VERSION_MAJOR 0)
 +set (dash_VERSION_MINOR 1)
 +set (dash_VERSION_PATCH 0)
++set (productname "opendsh")
 +project(dash
 +VERSION ${dash_VERSION_MAJOR}.${dash_VERSION_MINOR}.${dash_VERSION_PATCH}
 +LANGUAGES CXX)
@@ -16,17 +17,32 @@ index e466dd3..0175e33 100644
  set(CMAKE_AUTOMOC ON)
  set(CMAKE_AUTOUIC ON)
  set(CMAKE_AUTORCC ON)
-@@ -85,6 +91,9 @@ add_subdirectory(plugins)
+@@ -71,7 +78,14 @@ if(GST_BUILD)
+         if(RPI_MODEL EQUAL 17)
+             message("Raspberry Pi 4 Found")
+             add_definitions(-DPI4)
++            set (productname "${productname}-rpi4")
++            set (DASH_DEPENDS "openautoopendsh-rpi4 (>=2.1.1629500851)")
+         endif(RPI_MODEL EQUAL 17)
++        if(RPI_MODEL EQUAL 4)
++            message("Raspberry Pi 3 Found")
++            set (productname "${productname}-rpi3")
++            set (DASH_DEPENDS "openautoopendsh-rpi3 (>=2.1.1629500851)")
++        endif(RPI_MODEL EQUAL 4)
+     endif(RPI_BUILD)
+ endif(GST_BUILD)
+ message(INFO "${GST_LIBRARIES}")
+@@ -85,6 +99,9 @@ add_subdirectory(plugins)
  add_executable(dash ${source_files})
  
  include(${base_directory}/cmake_modules/gitversion.cmake)
 +set (dash_VERSION_PATCH ${_commit_timestamp})
-+set (dash_VERSION_STRING ${dash_VERSION_MAJOR}.${dash_VERSION_MINOR}.${dash_VERSION_PATCH}-1)
++set (dash_VERSION_STRING ${dash_VERSION_MAJOR}.${dash_VERSION_MINOR}.${dash_VERSION_PATCH}-2)
 +message(INFO " Project Version: ${dash_VERSION_STRING}")
  
  target_include_directories(dash PRIVATE
      ${CMAKE_CURRENT_BINARY_DIR}
-@@ -147,4 +156,39 @@ target_link_libraries(dash
+@@ -147,4 +164,39 @@ target_link_libraries(dash
      ${TAGLIB_LIBRARIES}
      )
  
@@ -38,11 +54,11 @@ index e466dd3..0175e33 100644
 +
 +SET(CPACK_GENERATOR "DEB")
 +SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "OpenDsh") #required
-+SET(CPACK_DEBIAN_PACKAGE_NAME "opendsh")
++SET(CPACK_PACKAGE_NAME "${productname}") 
 +SET(CPACK_PACKAGE_VENDOR "OpenDsh") 
 +set(CPACK_PACKAGE_VERSION ${dash_VERSION_STRING})
 +set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
-+set(CPACK_DEBIAN_PACKAGE_DEPENDS "openautoopendsh (>=2.1.1629500851)")
++set(CPACK_DEBIAN_PACKAGE_DEPENDS ${DASH_DEPENDS})
 +set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 +set(CPACK_COMPONENTS_ALL applications libraries headers Unspecified)
 +set(CPACK_COMPONENT_APPLICATIONS_DISPLAY_NAME "Applications")

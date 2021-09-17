@@ -210,8 +210,21 @@
             "group": "build"
         },
         {
-            "label": "OpenAuto - Build",
+            "label": "OpenAuto - Build -rpi4",
             "command": "cd openauto;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DRPI_BUILD=true -DPI4=TRUE -DGST_BUILD=true ../",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "OpenAuto - Build -rpi3",
+            "command": "cd openauto;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DRPI_BUILD=true -DGST_BUILD=true ../",
             "type": "shell",
             "args": [],
             "problemMatcher": [
@@ -314,7 +327,20 @@
             "group": "build"
         },
         {
-            "label": "Dash - Build",
+            "label": "Dash - Build -rpi3",
+            "command": "cd opendsh;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DRPI_BUILD=true -DGST_BUILD=TRUE -DCMAKE_INSTALL_PREFIX=\"/usr/local/opendsh\" ../",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Dash - Build -rpi4",
             "command": "cd opendsh;mkdir build;cd build;cmake -DCMAKE_BUILD_TYPE=Release -DRPI_BUILD=true -DGST_BUILD=TRUE -DPI4=TRUE -DCMAKE_INSTALL_PREFIX=\"/usr/local/opendsh\" ../",
             "type": "shell",
             "args": [],
